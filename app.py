@@ -66,7 +66,6 @@ filtered_items = filtered_items[
     filtered_items["order_id"].isin(filtered_orders["order_id"])
 ]
 
-
 # 8.데이터가 없을 때 안내 메시지를 표시합니다.
 if filtered_orders.empty or filtered_items.empty:
     st.warning("선택한 필터 조건에 해당하는 데이터가 없습니다.")
@@ -128,3 +127,23 @@ result_table["sales"] = (
 
 # 표 표시
 st.dataframe(result_table, use_container_width=True)
+
+#9.필터별 결과를 직접확인합니다. (없는 조합 찾기)
+# 카테고리 + 주문 상태별 주문 건수 확인
+check_data = order_items.merge(
+    products[["product_id", "category"]],
+    on="product_id",
+    how="left"
+)
+
+check_data = check_data.merge(
+    orders[["order_id", "order_status"]],
+    on="order_id",
+    how="left"
+)
+
+st.write(
+    check_data.groupby(["category", "order_status"])
+    .size()
+    .unstack(fill_value=0)
+)

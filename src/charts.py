@@ -48,4 +48,5 @@ def create_order_status_chart(filtered_orders):
 
     plt.tight_layout()
 
-    return fig
+    return fig 
+#이거 지워주세요
