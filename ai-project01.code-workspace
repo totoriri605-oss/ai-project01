@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"name": "ai-project01",
+			"path": "."
+		},
+		{
+			"name": "docs",
+			"path": "../ai-project011234/docs"
+		},
+		{
+			"name": "data",
+			"path": "../ai-project011234/data"
+		},
+		{
+			"name": "notebooks",
+			"path": "../ai-project011234/notebooks"
+		},
+		{
+			"name": "src",
+			"path": "../ai-project011234/src"
+		}
+	],
+	"settings": {}
+}
